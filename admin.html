@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Yadav Furniture</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <!-- Admin Sidebar -->
+    <div class="admin-sidebar">
+        <div class="admin-logo">
+            <i class="fas fa-couch"></i>
+            <span>YadavFurniture Admin</span>
+        </div>
+        
+        <nav class="admin-nav">
+            <a href="admin.html" class="admin-nav-item active">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </a>
+            <a href="admin-products.html" class="admin-nav-item">
+                <i class="fas fa-box"></i> Products
+            </a>
+            <a href="admin-orders.html" class="admin-nav-item">
+                <i class="fas fa-shopping-bag"></i> Orders
+            </a>
+            <a href="#" class="admin-nav-item">
+                <i class="fas fa-users"></i> Customers
+            </a>
+            <a href="#" class="admin-nav-item">
+                <i class="fas fa-tags"></i> Categories
+            </a>
+            <a href="#" class="admin-nav-item">
+                <i class="fas fa-percent"></i> Coupons
+            </a>
+            <a href="#" class="admin-nav-item">
+                <i class="fas fa-star"></i> Reviews
+            </a>
+            <a href="#" class="admin-nav-item">
+                <i class="fas fa-cog"></i> Settings
+            </a>
+        </nav>
+
+        <div class="admin-logout">
+            <a href="index.html">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Admin Content -->
+    <div class="admin-content">
+        <!-- Top Bar -->
+        <div class="admin-topbar">
+            <h1>Dashboard</h1>
+            <div class="admin-user">
+                <i class="fas fa-user-circle"></i>
+                <span>Admin</span>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="stat-details">
+                    <h3 id="totalOrders">0</h3>
+                    <p>Total Orders</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="fas fa-rupee-sign"></i>
+                </div>
+                <div class="stat-details">
+                    <h3 id="totalRevenue">₹0</h3>
+                    <p>Total Revenue</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="stat-details">
+                    <h3 id="totalProducts">0</h3>
+                    <p>Total Products</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-details">
+                    <h3 id="totalCustomers">0</h3>
+                    <p>Total Customers</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts and Tables -->
+        <div class="dashboard-grid">
+            <!-- Recent Orders -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>Recent Orders</h3>
+                    <a href="admin-orders.html" class="view-all">View All</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrdersTable">
+                            <!-- Orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Top Products -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>Top Selling Products</h3>
+                </div>
+                <div class="top-products-list" id="topProductsList">
+                    <!-- Top products will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

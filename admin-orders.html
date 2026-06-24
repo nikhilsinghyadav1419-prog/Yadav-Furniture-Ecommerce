@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders Management - Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <!-- Admin Sidebar -->
+    <div class="admin-sidebar">
+        <div class="admin-logo">
+            <i class="fas fa-couch"></i>
+            <span>YadavFurniture Admin</span>
+        </div>
+        
+        <nav class="admin-nav">
+            <a href="admin.html" class="admin-nav-item">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </a>
+            <a href="admin-products.html" class="admin-nav-item">
+                <i class="fas fa-box"></i> Products
+            </a>
+            <a href="admin-orders.html" class="admin-nav-item active">
+                <i class="fas fa-shopping-bag"></i> Orders
+            </a>
+            <a href="#" class="admin-nav-item">
+                <i class="fas fa-users"></i> Customers
+            </a>
+        </nav>
+
+        <div class="admin-logout">
+            <a href="index.html">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Admin Content -->
+    <div class="admin-content">
+        <div class="admin-topbar">
+            <h1>Orders Management</h1>
+        </div>
+
+        <!-- Order Stats -->
+        <div class="order-stats">
+            <div class="order-stat-card">
+                <h4>Pending</h4>
+                <p id="pendingOrders">0</p>
+            </div>
+            <div class="order-stat-card">
+                <h4>Confirmed</h4>
+                <p id="confirmedOrders">0</p>
+            </div>
+            <div class="order-stat-card">
+                <h4>Shipped</h4>
+                <p id="shippedOrders">0</p>
+            </div>
+            <div class="order-stat-card">
+                <h4>Delivered</h4>
+                <p id="deliveredOrders">0</p>
+            </div>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="admin-card">
+            <div class="admin-card-header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchOrders" placeholder="Search orders...">
+                </div>
+                <select id="filterOrderStatus">
+                    <option value="">All Orders</option>
+                    <option value="pending">Pending</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="packed">Packed</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="delivered">Delivered</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+            </div>
+
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Products</th>
+                            <th>Amount</th>
+                            <th>Payment</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTable">
+                        <!-- Orders will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="orderDetailsModal">
+        <div class="modal-content large">
+            <button class="modal-close">&times;</button>
+            <h3>Order Details</h3>
+            <div id="orderDetailsContent">
+                <!-- Order details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+   <script type="module" src="js/admin.js"></script>
+</body>
+</html>

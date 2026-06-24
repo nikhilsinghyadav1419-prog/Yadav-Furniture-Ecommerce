@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Management - Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <!-- Admin Sidebar -->
+    <div class="admin-sidebar">
+        <div class="admin-logo">
+            <i class="fas fa-couch"></i>
+            <span>YadavFurniture Admin</span>
+        </div>
+        
+        <nav class="admin-nav">
+            <a href="admin.html" class="admin-nav-item">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </a>
+            <a href="admin-products.html" class="admin-nav-item active">
+                <i class="fas fa-box"></i> Products
+            </a>
+            <a href="admin-orders.html" class="admin-nav-item">
+                <i class="fas fa-shopping-bag"></i> Orders
+            </a>
+            <a href="#" class="admin-nav-item">
+                <i class="fas fa-users"></i> Customers
+            </a>
+        </nav>
+
+        <div class="admin-logout">
+            <a href="index.html">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Admin Content -->
+    <div class="admin-content">
+        <div class="admin-topbar">
+            <h1>Products Management</h1>
+            <button class="btn btn-primary" id="addProductBtn">
+                <i class="fas fa-plus"></i> Add New Product
+            </button>
+        </div>
+
+        <!-- Products Table -->
+        <div class="admin-card">
+            <div class="admin-card-header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchProducts" placeholder="Search products...">
+                </div>
+                <select id="filterCategory">
+                    <option value="">All Categories</option>
+                    <option value="sofa">Sofa Sets</option>
+                    <option value="beds">Beds</option>
+                    <option value="dining">Dining Tables</option>
+                    <option value="office">Office Furniture</option>
+                </select>
+            </div>
+
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTable">
+                        <!-- Products will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content large">
+            <button class="modal-close">&times;</button>
+            <h3 id="modalTitle">Add New Product</h3>
+            
+            <form class="admin-form" id="productForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Product Name *</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category *</label>
+                        <select id="productCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="sofa">Sofa Sets</option>
+                            <option value="beds">Beds</option>
+                            <option value="dining">Dining Tables</option>
+                            <option value="chairs">Chairs</option>
+                            <option value="office">Office Furniture</option>
+                            <option value="wardrobes">Wardrobes</option>
+                            <option value="tables">Tables</option>
+                            <option value="tv-units">TV Units</option>
+                            <option value="cabinets">Cabinets</option>
+                            <option value="mattresses">Mattresses</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Description *</label>
+                    <textarea id="productDescription" rows="4" required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Material</label>
+                        <input type="text" id="productMaterial" placeholder="e.g., Wood, Leather">
+                    </div>
+                    <div class="form-group">
+                        <label>Dimensions</label>
+                        <input type="text" id="productDimensions" placeholder="L x W x H">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Color</label>
+                        <input type="text" id="productColor" placeholder="e.g., Brown, Black">
+                    </div>
+                    <div class="form-group">
+                        <label>Weight (kg)</label>
+                        <input type="number" id="productWeight">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Original Price (₹) *</label>
+                        <input type="number" id="productPrice" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Discount Price (₹)</label>
+                        <input type="number" id="productDiscount">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Stock Quantity *</label>
+                        <input type="number" id="productStock" required>
+                    </div>
+                    <div class="form-group">
+                        <label>SKU</label>
+                        <input type="text" id="productSKU">
+                    </div>
+                </div>
+
+               <!-- Product Image Upload -->
+<div class="form-group">
+
+    <label>Product Images *</label>
+
+
+    <input 
+        type="file"
+        id="productImage1"
+        accept="image/*"
+        required
+    >
+
+
+    <input 
+        type="file"
+        id="productImage2"
+        accept="image/*"
+        class="mt-10"
+    >
+
+
+    <input 
+        type="file"
+        id="productImage3"
+        accept="image/*"
+        class="mt-10"
+    >
+
+
+    <input 
+        type="file"
+        id="productImage4"
+        accept="image/*"
+        class="mt-10"
+    >
+
+
+</div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="productFeatured">
+                        Mark as Featured Product
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" id="cancelProductBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

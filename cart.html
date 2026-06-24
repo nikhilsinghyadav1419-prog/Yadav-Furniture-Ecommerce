@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Yadav Furniture Showroom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="contact-info">
+                        <span><i class="fas fa-phone"></i> +91 98765 43210</span>
+                    </div>
+                    <div class="user-actions">
+                        <a href="#" id="userProfileLink" class="user-link">
+                            <i class="fas fa-user"></i> <span id="userNameDisplay">Login</span>
+                        </a>
+                        <a href="#" id="logoutBtn" class="user-link" style="display:none;">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <h1><i class="fas fa-couch"></i> YadavFurniture</h1>
+                    </div>
+                    
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                    
+                    <div class="nav-icons">
+                        <a href="profile.html#wishlist" class="icon-btn">
+                            <i class="fas fa-heart"></i>
+                            <span class="badge" id="wishlistCount">0</span>
+                        </a>
+                        <a href="cart.html" class="icon-btn active">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge" id="cartCount">0</span>
+                        </a>
+                        <button class="mobile-toggle" id="mobileToggle">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+           <h1>
+                Shopping Cart (<span id="cartPageCount">0</span> items)
+        </h1> 
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Cart</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-wrapper" id="cartWrapper">
+                <!-- Empty Cart -->
+                <div class="empty-cart" id="emptyCart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h2>Your Cart is Empty</h2>
+                    <p>Looks like you haven't added any items to your cart yet.</p>
+                    <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+                </div>
+
+                <!-- Cart Items -->
+                <div class="cart-content" id="cartContent" style="display: none;">
+                    <div class="cart-items">
+                        <div class="cart-header">
+                            <h2>Shopping Cart (<span id="cartItemCount">0</span> items)</h2>
+                            <button class="clear-cart-btn" id="clearCartBtn">
+                                <i class="fas fa-trash"></i> Clear Cart
+                            </button>
+                        </div>
+                        
+                        <div class="cart-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cartItemsTable">
+                                    <!-- Cart items will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="cart-actions">
+                            <a href="products.html" class="btn btn-outline">
+                                <i class="fas fa-arrow-left"></i> Continue Shopping
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Cart Summary -->
+                    <div class="cart-summary">
+                        <h3>Order Summary</h3>
+                        
+                        <div class="summary-item">
+                            <span>Subtotal</span>
+                            <strong id="cartSubtotal">₹0</strong>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Discount</span>
+                            <strong class="discount-amount" id="cartDiscount">-₹0</strong>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>Delivery Charges</span>
+                            <strong id="deliveryCharges">₹0</strong>
+                        </div>
+
+                        <div class="coupon-section">
+                            <h4>Apply Coupon</h4>
+                            <div class="coupon-input">
+                                <input type="text" id="couponCode" placeholder="Enter coupon code">
+                                <button class="btn btn-outline" id="applyCouponBtn">Apply</button>
+                            </div>
+                            <div class="coupon-message" id="couponMessage"></div>
+                            
+                            <div class="available-coupons">
+                                <p><strong>Available Coupons:</strong></p>
+                                <div class="coupon-tag" data-code="SAVE10">
+                                    SAVE10 - 10% off on orders above ₹50,000
+                                </div>
+                                <div class="coupon-tag" data-code="SAVE15">
+                                    SAVE15 - 15% off on orders above ₹1,00,000
+                                </div>
+                                <div class="coupon-tag" data-code="FIRST20">
+                                    FIRST20 - 20% off on first order
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="summary-total">
+                            <span>Total Amount</span>
+                            <strong id="cartTotal">₹0</strong>
+                        </div>
+
+                        <button class="btn btn-primary btn-block" id="proceedCheckoutBtn">
+                            Proceed to Checkout <i class="fas fa-arrow-right"></i>
+                        </button>
+
+                        <div class="secure-checkout">
+                            <i class="fas fa-lock"></i>
+                            <span>Secure Checkout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3><i class="fas fa-couch"></i> YadavFurniture</h3>
+                    <p>Yadav Furniture Morena - Premium quality home and office furniture with trusted service.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 YadavFurniture. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/917692872689" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script type="module" src="js/cart.js"></script>
+</body>
+</html>

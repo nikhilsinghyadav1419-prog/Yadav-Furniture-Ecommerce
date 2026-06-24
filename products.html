@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - Yadav Furniture Showroom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (Same as index.html) -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="contact-info">
+                        <span><i class="fas fa-phone"></i> +91 98765 43210</span>
+                        <span><i class="fas fa-envelope"></i> info@Yadavfurniture.com</span>
+                    </div>
+                    <div class="user-actions">
+                        <a href="#" id="userProfileLink" class="user-link">
+                            <i class="fas fa-user"></i> <span id="userNameDisplay">Login</span>
+                        </a>
+                        <a href="#" id="logoutBtn" class="user-link" style="display:none;">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <h1><i class="fas fa-couch"></i> YadavFurniture</h1>
+                    </div>
+                    
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html" class="active">Products</a></li>
+                        <li class="dropdown">
+                            <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html?category=sofa">Sofa Sets</a></li>
+                                <li><a href="products.html?category=beds">Beds</a></li>
+                                <li><a href="products.html?category=dining">Dining Tables</a></li>
+                                <li><a href="products.html?category=chairs">Chairs</a></li>
+                                <li><a href="products.html?category=office">Office Furniture</a></li>
+                                <li><a href="products.html?category=wardrobes">Wardrobes</a></li>
+                                <li><a href="products.html?category=tables">Tables</a></li>
+                                <li><a href="products.html?category=tv-units">TV Units</a></li>
+                                <li><a href="products.html?category=cabinets">Cabinets</a></li>
+                                <li><a href="products.html?category=mattresses">Mattresses</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                    
+                    <div class="nav-icons">
+                        <a href="#" class="icon-btn" id="searchBtn">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <a href="profile.html#wishlist" class="icon-btn">
+                            <i class="fas fa-heart"></i>
+                            <span class="badge" id="wishlistCount">0</span>
+                        </a>
+                        <a href="cart.html" class="icon-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge" id="cartCount">0</span>
+                        </a>
+                        <button class="mobile-toggle" id="mobileToggle">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Furniture Collection</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Products</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-wrapper">
+                <!-- Sidebar Filters -->
+                <aside class="filters-sidebar">
+                    <div class="filter-header">
+                        <h3>Filters</h3>
+                        <button class="clear-filters" id="clearFilters">Clear All</button>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <h4>Categories</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="all" checked>
+                                <span>All Categories</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="sofa">
+                                <span>Sofa Sets</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="beds">
+                                <span>Beds</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="dining">
+                                <span>Dining Tables</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="chairs">
+                                <span>Chairs</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="office">
+                                <span>Office Furniture</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="wardrobes">
+                                <span>Wardrobes</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="tables">
+                                <span>Tables</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="tv-units">
+                                <span>TV Units</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="cabinets">
+                                <span>Cabinets</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="mattresses">
+                                <span>Mattresses</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <div class="price-inputs">
+                            <input type="number" id="minPrice" placeholder="Min" value="0">
+                            <span>-</span>
+                            <input type="number" id="maxPrice" placeholder="Max" value="200000">
+                        </div>
+                        <div class="price-slider">
+                            <input type="range" id="priceRange" min="0" max="200000" value="200000">
+                        </div>
+                    </div>
+
+                    <!-- Material Filter -->
+                    <div class="filter-group">
+                        <h4>Material</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="material" value="wood">
+                                <span>Wood</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="material" value="leather">
+                                <span>Leather</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="material" value="fabric">
+                                <span>Fabric</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="material" value="metal">
+                                <span>Metal</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="material" value="glass">
+                                <span>Glass</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Color Filter -->
+                    <div class="filter-group">
+                        <h4>Color</h4>
+                        <div class="color-options">
+                            <label class="color-option" style="background: #8B4513;" title="Brown">
+                                <input type="checkbox" name="color" value="brown">
+                            </label>
+                            <label class="color-option" style="background: #000;" title="Black">
+                                <input type="checkbox" name="color" value="black">
+                            </label>
+                            <label class="color-option" style="background: #fff; border: 1px solid #ddd;" title="White">
+                                <input type="checkbox" name="color" value="white">
+                            </label>
+                            <label class="color-option" style="background: #808080;" title="Gray">
+                                <input type="checkbox" name="color" value="gray">
+                            </label>
+                            <label class="color-option" style="background: #F5F5DC;" title="Beige">
+                                <input type="checkbox" name="color" value="beige">
+                            </label>
+                            <label class="color-option" style="background: #00008B;" title="Blue">
+                                <input type="checkbox" name="color" value="blue">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-group">
+                        <h4>Customer Rating</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="rating" value="4">
+                                <span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    & Up
+                                </span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="rating" value="3">
+                                <span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    & Up
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="filter-group">
+                        <h4>Availability</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="availability" value="in-stock">
+                                <span>In Stock</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="availability" value="out-of-stock">
+                                <span>Out of Stock</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Products Content -->
+                <div class="products-content">
+                    <!-- Toolbar -->
+                    <div class="products-toolbar">
+                        <div class="results-info">
+                            <span id="resultsCount">Showing all products</span>
+                        </div>
+                        <div class="toolbar-actions">
+                            <div class="view-mode">
+                                <button class="view-btn active" data-view="grid">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button class="view-btn" data-view="list">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                            <select id="sortSelect" class="sort-select">
+                                <option value="default">Sort By: Default</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="name-asc">Name: A to Z</option>
+                                <option value="name-desc">Name: Z to A</option>
+                                <option value="rating">Rating: High to Low</option>
+                                <option value="newest">Newest First</option>
+                            </select>
+                            <button class="mobile-filter-btn" id="mobileFilterBtn">
+                                <i class="fas fa-filter"></i> Filters
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products will be loaded dynamically -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3><i class="fas fa-couch"></i> YadavFurniture</h3>
+                    <p>Yadav Furniture Morena - Premium quality home and office furniture with trusted service.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="products.html?category=sofa">Sofa Sets</a></li>
+                        <li><a href="products.html?category=beds">Beds</a></li>
+                        <li><a href="products.html?category=dining">Dining Tables</a></li>
+                        <li><a href="products.html?category=office">Office Furniture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 YadavFurniture. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/917692872689" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+   <script type="module" src="js/products.js"></script>
+</body>
+</html>
